@@ -1,8 +1,8 @@
 let popup = document.querySelector('.popup');
 
-let profileInfo = document.querySelector('.Profile__info');
+let profileInfo = document.querySelector('.profile-info');
 
-let editButton = profileInfo.querySelector('.Profile__info_button');
+let editButton = profileInfo.querySelector('.profile-info__button');
 editButton.addEventListener('click', function() {
     popup.classList.add('popup_opened');
 });
@@ -17,8 +17,8 @@ popupClose.addEventListener('click', function() {
 
 
 
-let profileTitle = profileInfo.querySelector('.Profile__info_title');
-let profileSub = profileInfo.querySelector('.Profile__info_subtitle');
+let profileTitle = profileInfo.querySelector('.profile-info__title');
+let profileSub = profileInfo.querySelector('.profile-info__subtitle');
 
 
 

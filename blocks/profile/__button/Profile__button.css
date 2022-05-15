@@ -1,4 +1,4 @@
-.Profile__button {
+.profile__button {
     width: 150px;
     height: 50px;
     border: 2px solid #FFFFFF;
@@ -10,12 +10,12 @@
     transition: 1s;
 }
 
-.Profile__button:hover {
+.profile__button:hover {
     opacity: 0.6;
 }
 
 @media (max-width:768px) {
-    .Profile__button {
+    .profile__button {
         width: 100%;
         bottom: 0;
     }

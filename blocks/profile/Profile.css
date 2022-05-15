@@ -1,4 +1,4 @@
-.Profile {
+.profile {
     max-width: 880px;
     height: 120px;
     margin: auto;
@@ -9,7 +9,7 @@
 }
 
 @media (max-width:768px) {
-    .Profile {
+    .profile {
         max-width: 282px;
         height: 286px;
         margin: auto;

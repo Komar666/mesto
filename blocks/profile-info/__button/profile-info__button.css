@@ -1,4 +1,4 @@
-.Profile__info_button {
+.profile-info__button {
     position: absolute;
     right: 0;
     top: 15px;
@@ -6,12 +6,12 @@
     transition: 1s;
 }
 
-.Profile__info_button:hover {
+.profile-info__button:hover {
     opacity: 0.6;
 }
 
 @media (max-width:768px) {
-    .Profile__info_button {
+    .profile-info__button {
         right: 19px;
         top: 8px;
     }
