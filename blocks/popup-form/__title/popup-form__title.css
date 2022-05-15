@@ -1,4 +1,4 @@
-.popup__container_title {
+.popup-form__title {
     font-family: 'Inter';
     font-style: normal;
     font-weight: 900;
@@ -12,7 +12,7 @@
 }
 
 @media (max-width:768px) {
-    .popup__container_title {
+    .popup-form__title {
         font-family: 'Inter';
         font-style: normal;
         font-weight: 900;

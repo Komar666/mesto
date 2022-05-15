@@ -23,8 +23,8 @@ let profileSub = profileInfo.querySelector('.Profile__info_subtitle');
 
 
 let formElement = popup.querySelector('.popup-form');
-let input = formElement.querySelector('.popup__container_field');
-let inputSub = formElement.querySelector('.popup__container_field_sub');
+let input = formElement.querySelector('.popup-form__field');
+let inputSub = formElement.querySelector('.popup-form__field_sub');
 input.setAttribute('value', profileTitle.textContent);
 inputSub.setAttribute('value', profileSub.textContent);
 

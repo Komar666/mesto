@@ -1,4 +1,4 @@
-.popup__container_field {
+.popup-form__field {
     width: 358px;
     height: 27px;
     font-family: 'Inter';
@@ -13,25 +13,25 @@
     margin: auto;
 }
 
-.popup__container_field:nth-of-type(1n) {
+.popup-form__field:nth-of-type(1n) {
     margin-top: 54px;
     margin-bottom: 30px;
 }
 
-.popup__container_field:nth-of-type(2n) {
+.popup-form__field:nth-of-type(2n) {
     margin-top: 0px;
     margin-bottom: 48px;
 }
 
 @media (max-width:768px) {
-    .popup__container_field {
+    .popup-form__field {
         width: 238px;
         height: 27px;
     }
-    .popup__container_field:nth-of-type(1n) {
+    .popup-form__field:nth-of-type(1n) {
         margin-top: 75px;
     }
-    .popup__container_field:nth-of-type(2n) {
+    .popup-form__field:nth-of-type(2n) {
         margin-top: 0px;
         margin-bottom: 45px;
     }
