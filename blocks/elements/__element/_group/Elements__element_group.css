@@ -1,0 +1,11 @@
+.Elements__element_group {
+    max-width: 246px;
+    margin-top: 25px;
+    margin-left: 21px;
+    margin-right: 15px;
+    margin-bottom: 31px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}

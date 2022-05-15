@@ -1,0 +1,18 @@
+.Profile__info_button {
+    position: absolute;
+    right: 0;
+    top: 15px;
+    cursor: pointer;
+    transition: 1s;
+}
+
+.Profile__info_button:hover {
+    opacity: 0.6;
+}
+
+@media (max-width:768px) {
+    .Profile__info_button {
+        right: 19px;
+        top: 8px;
+    }
+}

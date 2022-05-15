@@ -1,0 +1,15 @@
+.Profile__info {
+    width: 336px;
+    height: 73px;
+    margin-left: 30px;
+    position: relative;
+}
+
+@media (max-width:768px) {
+    .Profile__info {
+        width: 282px;
+        height: 54px;
+        margin: 0;
+        margin-top: 26px;
+    }
+}

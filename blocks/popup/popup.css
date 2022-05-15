@@ -1,0 +1,21 @@
+.popup {
+    background: #00000085;
+    width: 100%;
+    height: 1217px;
+    position: absolute;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    display: none;
+}
+
+.popup_opened {
+    display: block;
+}
+
+@media (max-width:768px) {
+    .popup {
+        width: 100%;
+        height: 1217px;
+    }
+}
