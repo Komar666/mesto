@@ -4,13 +4,12 @@
     height: 1217px;
     position: absolute;
     z-index: 1;
-    display: flex;
     flex-direction: column;
     display: none;
 }
 
 .popup_opened {
-    display: block;
+    display: flex;
 }
 
 @media (max-width:768px) {
