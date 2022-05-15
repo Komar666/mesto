@@ -39,11 +39,3 @@ function formSubmitHandler(evt) {
 
 
 formElement.addEventListener('submit', formSubmitHandler);
-
-let heart = document.querySelectorAll('.Elements__element_group_icon');
-
-function heartClick() {
-    this.setAttribute('src', 'images/Black.svg');
-}
-
-heart[0].addEventListener('click', heartClick);
