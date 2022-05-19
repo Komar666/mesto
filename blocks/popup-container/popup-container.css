@@ -4,6 +4,7 @@
     margin: 0 auto;
     margin-top: 195px;
     position: relative;
+    border: 1px solid red;
 }
 
 @media (max-width:768px) {
