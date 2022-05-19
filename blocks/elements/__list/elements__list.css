@@ -1,4 +1,4 @@
-    .elements {
+    .elements__list {
         margin: auto;
         margin-top: 50px;
         max-width: 880px;
@@ -11,7 +11,7 @@
     }
     
     @media (max-width:768px) {
-        .elements {
+        .elements__list {
             margin: auto;
             margin-top: 50px;
             max-width: 282px;

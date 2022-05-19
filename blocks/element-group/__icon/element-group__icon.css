@@ -1,6 +1,8 @@
 .element-group__icon {
     position: absolute;
+    background-color: rgba(255, 0, 0, 0);
     right: 0;
+    border: none;
 }
 
 .element-group__icon:hover {
