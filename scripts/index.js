@@ -13,13 +13,13 @@ function formSubmitHandler(evt) {
     evt.preventDefault();
     profileTitle.textContent = inputTitle.value;
     profileSub.textContent = inputSub.value;
-    popup.classList.remove('popup_opened');
+    popupClose();
 }
 
 function popupOpen() {
     popup.classList.add('popup_opened');
-    inputTitle.setAttribute('value', profileTitle.textContent);
-    inputSub.setAttribute('value', profileSub.textContent);
+    inputTitle.value = profileTitle.textContent;
+    inputSub.value = profileSub.textContent;
 }
 
 function popupClose() {
@@ -29,5 +29,4 @@ function popupClose() {
 
 editButton.addEventListener('click', popupOpen);
 closeButton.addEventListener('click', popupClose);
-formButton.addEventListener('click', popupClose);
 formElement.addEventListener('submit', formSubmitHandler);
