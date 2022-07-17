@@ -87,14 +87,18 @@ function createCard(name, link) {
 }
 
 function addPlace(evt) {
+
     evt.preventDefault();
     elementsList.prepend(createCard(inputPlace.value, inputLink.value));
+    formPlaceAdd.reset();
     closePopup(popupAddPlace);
+
 }
 
 
 
 buttonEdit.addEventListener('click', openProfileEdit);
+
 buttonAddplace.addEventListener('click', function() {
     openPopup(popupAddPlace);
 });
@@ -108,6 +112,7 @@ buttonCloseAddPlace.addEventListener('click', function() {
 });
 
 formProfileEdit.addEventListener('submit', handleProfileFormSubmit);
+
 formPlaceAdd.addEventListener('submit', addPlace);
 
 
@@ -202,4 +207,4 @@ for (let i = 0; i < initialCards.length; i++) {
 
 buttonCloseImg.addEventListener('click', function() {
     closePopup(popupImg);
-});
+})
