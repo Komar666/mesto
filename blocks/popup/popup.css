@@ -5,10 +5,9 @@
     top: 0;
     position: absolute;
     z-index: 1;
-    flex-direction: column;
-    visibility: hidden;
     opacity: 0;
-    transition: visibility 0s, opacity 0.5s linear;
+    visibility: hidden;
+    flex-direction: column;
 }
 
 @media (max-width:768px) {

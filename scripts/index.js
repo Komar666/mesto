@@ -1,18 +1,19 @@
 const popup = document.querySelector('.popup');
+const popupProfileEdit = document.querySelector('.popup-profile-edit');
 const profileTitle = document.querySelector('.profile-info__title');
 const profileSub = document.querySelector('.profile-info__subtitle');
-const editButton = document.querySelector('.profile-info__button');
-const formElement = popup.querySelector('.popup-form');
-const formButton = formElement.querySelector('.popup-form__button')
-const inputTitle = formElement.querySelector('.popup-form__field');
-const inputSub = formElement.querySelector('.popup-form__field_type_sub');
+const buttonEdit = document.querySelector('.profile-info__button');
+const formProfileEdit = document.querySelector('.form-profile-edit ');
+const formButton = document.querySelector('.popup-form__button');
+const inputTitle = document.querySelector('.popup-form__field');
+const inputSub = document.querySelector('.popup-form__field_type_sub');
 
-const popupAdd = document.querySelector('.popup-add');
-const formElementAdd = document.querySelector('.popup-form-add');
-const closeButton = document.querySelector('.popup-container__close');
-const closeButtonAdd = document.querySelector('.popup-container__close_type_add');
-const closeButtonImg = document.querySelector('.popup-img-block__close_type_img')
-const addButton = document.querySelector('.profile__button');
+const popupAddPlace = document.querySelector('.popup-add');
+const formPlaceAdd = document.querySelector('.form-place-add');
+const buttonCloseEditProfile = document.querySelector('.button-close-edit-profile');
+const buttonCloseAddPlace = document.querySelector('.popup-container__close_type_add');
+const buttonCloseImg = document.querySelector('.popup-img-block__close_type_img')
+const buttonAddplace = document.querySelector('.profile__button');
 const inputPlace = document.querySelector('.popup-form__field_type_name');
 const inputLink = document.querySelector('.popup-form__field_type_link');
 
@@ -21,80 +22,93 @@ const popupImg = document.querySelector('.popup-img');
 const elementsList = document.querySelector('.elements__list');
 
 
-function formSubmitHandler(evt) {
+function handleProfileFormSubmit(evt) {
     evt.preventDefault();
     profileTitle.textContent = inputTitle.value;
     profileSub.textContent = inputSub.value;
-    popupClose();
+    closePopup(popupProfileEdit);
 }
 
-function popupOpen() {
-    popup.classList.add('popup_opened');
+function openProfileEdit() {
+    openPopup(popupProfileEdit);
     inputTitle.value = profileTitle.textContent;
     inputSub.value = profileSub.textContent;
 }
 
-function popupAddOpen() {
-    popupAdd.classList.add('popup_opened');
+function openPopup(popup) {
+
+    popup.classList.add('popup_opened');
 }
 
-function popupClose() {
+function closePopup(popup) {
+
     popup.classList.remove('popup_opened');
+    popup.classList.add('animation');
+
 }
 
-function popupAddClose() {
-    popupAdd.classList.remove('popup_opened');
-}
+function createCard(name, link) {
 
-function addPlace(evt) {
-    evt.preventDefault();
     const place = document.querySelector('#element').content;
     const placeElement = place.querySelector('.element').cloneNode(true);
-    const text = inputPlace.value;
-    const src = inputLink.value;
-    placeElement.querySelector('.element-group__text').textContent = text;
-    placeElement.querySelector('.element__images').src = src;
+    placeElement.querySelector('.element-group__text').textContent = name;
+    placeElement.querySelector('.element__images').src = link;
+    placeElement.querySelector('.element__images').alt = name;
 
-
-    placeElement.querySelector('.heart-icon').addEventListener('click', function(evt) {
+    placeElement.querySelector('.element-group__icon').addEventListener('click', function(evt) {
         const eventTarget = evt.target;
-        if (eventTarget.classList.contains('unheart')) {
-            eventTarget.setAttribute('src', 'images/Union.svg');
-        } else {
-            eventTarget.setAttribute('src', 'images/Heart.svg');
-        }
-        eventTarget.classList.toggle('unheart')
+        eventTarget.classList.add('unheart');
+        eventTarget.classList.toggle('element-group__icon');
+
 
     });
 
     placeElement.querySelector('.element__delete').addEventListener('click', function() {
-        let elementDeleteobj = placeElement.querySelector('.element__delete').closest('.element');
+        const elementDeleteobj = placeElement.querySelector('.element__delete').closest('.element');
         elementDeleteobj.remove();
     });
 
     placeElement.querySelector('.element__images').addEventListener('click', function() {
-        popupImg.classList.add('popup_opened');
-        const popupImgBlock = document.querySelector('.popup-img-block');
-        const popupImgItem = document.querySelector('#popup-img-object').content;
-        const popupImgItemElement = popupImgItem.querySelector('.popup-img-object').cloneNode(true);
+        openPopup(popupImg);
 
-        popupImgItemElement.querySelector('.popup-img-object__item').src = src;
-        popupImgItemElement.querySelector('.popup-img-object__text').textContent = text;
-        popupImgBlock.append(popupImgItemElement);
+        document.querySelector('.popup-img-object__item').src = link;
+
+        document.querySelector('.popup-img-object__item').alt = name;
+
+        document.querySelector('.popup-img-object__text').textContent = name;
+
+
+
     });
 
-    elementsList.prepend(placeElement);
-    popupAddClose();
+    return placeElement;
+
+
+}
+
+function addPlace(evt) {
+    evt.preventDefault();
+    elementsList.prepend(createCard(inputPlace.value, inputLink.value));
+    closePopup(popupAddPlace);
 }
 
 
 
-editButton.addEventListener('click', popupOpen);
-addButton.addEventListener('click', popupAddOpen);
-closeButton.addEventListener('click', popupClose);
-closeButtonAdd.addEventListener('click', popupAddClose);
-formElement.addEventListener('submit', formSubmitHandler);
-formElementAdd.addEventListener('submit', addPlace);
+buttonEdit.addEventListener('click', openProfileEdit);
+buttonAddplace.addEventListener('click', function() {
+    openPopup(popupAddPlace);
+});
+
+buttonCloseEditProfile.addEventListener('click', function() {
+    closePopup(popupProfileEdit);
+});
+
+buttonCloseAddPlace.addEventListener('click', function() {
+    closePopup(popupAddPlace);
+});
+
+formProfileEdit.addEventListener('submit', handleProfileFormSubmit);
+formPlaceAdd.addEventListener('submit', addPlace);
 
 
 
@@ -130,62 +144,62 @@ const initialCards = [{
 
 for (let i = 0; i < initialCards.length; i++) {
 
-    const element = document.createElement('li');
-    element.classList.add('element');
-    const elementDelete = document.createElement('img');
-    elementDelete.classList.add('element__delete');
-    elementDelete.src = 'images/trash.svg';
-    const elementImages = document.createElement('img');
-    elementImages.classList.add('element__images');
-    elementImages.src = initialCards[i].link;
-    const elementGroup = document.createElement('div');
-    elementGroup.classList.add('element-group');
-    const elementGroupText = document.createElement('h2');
-    elementGroupText.classList.add('element-group__text');
-    elementGroupText.textContent = initialCards[i].name;
-    const elementGroupIcon = document.createElement('button');
-    elementGroupIcon.classList.add('element-group__icon');
-    const elementGroupIconImg = document.createElement('img');
-    elementGroupIconImg.classList.add('unheart');
+    elementsList.prepend(createCard(initialCards[i].name, initialCards[i].link));
 
-    elementGroupIconImg.src = 'images/Heart.svg';
-    elementGroup.append(elementGroupText, elementGroupIcon);
-    element.append(elementImages, elementDelete, elementGroup);
-    elementGroupIcon.append(elementGroupIconImg);
-    elementsList.append(element);
+    // const element = document.createElement('li');
+    // element.classList.add('element');
+    // const elementDelete = document.createElement('img');
+    // elementDelete.classList.add('element__delete');
+    // elementDelete.src = 'images/trash.svg';
+    // const elementImages = document.createElement('img');
+    // elementImages.classList.add('element__images');
+    // elementImages.src = initialCards[i].link;
+    // const elementGroup = document.createElement('div');
+    // elementGroup.classList.add('element-group');
+    // const elementGroupText = document.createElement('h2');
+    // elementGroupText.classList.add('element-group__text');
+    // elementGroupText.textContent = initialCards[i].name;
+    // const elementGroupIcon = document.createElement('button');
+    // elementGroupIcon.classList.add('element-group__icon');
+    // const elementGroupIconImg = document.createElement('img');
+    // elementGroupIconImg.classList.add('unheart');
 
-    elementGroupIconImg.addEventListener('click', function(evt) {
-        const eventTarget = evt.target;
-        if (eventTarget.classList.contains('unheart')) {
-            eventTarget.setAttribute('src', 'images/Union.svg');
-        } else {
-            eventTarget.setAttribute('src', 'images/Heart.svg');
-        }
-        eventTarget.classList.toggle('unheart');
-    });
+    // elementGroupIconImg.src = 'images/Heart.svg';
+    // elementGroup.append(elementGroupText, elementGroupIcon);
+    // element.append(elementImages, elementDelete, elementGroup);
+    // elementGroupIcon.append(elementGroupIconImg);
+    // elementsList.append(element);
 
-    elementImages.addEventListener('click', function() {
+    // elementGroupIconImg.addEventListener('click', function(evt) {
+    //     const eventTarget = evt.target;
+    //     if (eventTarget.classList.contains('unheart')) {
+    //         eventTarget.setAttribute('src', 'images/Union.svg');
+    //     } else {
+    //         eventTarget.setAttribute('src', 'images/Heart.svg');
+    //     }
+    //     eventTarget.classList.toggle('unheart');
+    // });
 
-        popupImg.classList.add('popup_opened');
-        const popupImgBlock = document.querySelector('.popup-img-block');
-        const popupImgItem = document.querySelector('#popup-img-object').content;
-        const popupImgItemElement = popupImgItem.querySelector('.popup-img-object').cloneNode(true);
+    // elementImages.addEventListener('click', function() {
 
-        popupImgItemElement.querySelector('.popup-img-object__item').src = initialCards[i].link;
-        popupImgItemElement.querySelector('.popup-img-object__text').textContent = initialCards[i].name;
-        popupImgBlock.append(popupImgItemElement);
-    });
+    //     openPopup(popupImg);
 
-    closeButtonImg.addEventListener('click', function() {
-        popupImg.classList.remove('popup_opened');
-        popupImg.querySelector('.popup-img-object').remove();
-    });
+    //     const poupImgObjectLink = document.querySelector('.popup-img-object__item').src = initialCards[i].link;
 
-    elementDelete.addEventListener('click', function() {
-        elementDeleteobj = elementDelete.closest('.element');
-        elementDeleteobj.remove();
-    });
+    //     const popupImgObjectText = document.querySelector('.popup-img-object__text').textContent = initialCards[i].name;
 
 
 
+    // });
+
+
+
+    // elementDelete.addEventListener('click', function() {
+    //     elementDeleteobj = elementDelete.closest('.element');
+    //     elementDeleteobj.remove();
+    // });
 }
+
+buttonCloseImg.addEventListener('click', function() {
+    closePopup(popupImg);
+});

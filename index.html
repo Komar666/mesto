@@ -38,57 +38,12 @@
                             <h2 class="element-group__text"></h2>
                           
                                 <button type="button" class="element-group__icon">
-                                    <img class="heart-icon unheart" alt="Иконка оценивания"  src="images/Heart.svg">
+                                    
                                 </button>
                         
-                </div>
-                </li>
+                        </div>
+                     </li>
                 </template>
-
-
-                <!-- <li class="element">
-                    <img alt="Фотография местности" class="element__images" src="">
-                    <div class="element-group">
-                        <h2 class="element-group__text">Карачаевск</h2>
-                        <button type="button" class="element-group__icon"><img alt="Иконка оценивания"  src="images/Heart.svg"></button>
-                    </div>
-                </li>
-                <li class="element">
-                    <img alt="Фотография местности" class="element__images" src="images/kirill-pershin-1088404-unsplash.jpg">
-                    <div class="element-group">
-                        <h2 class="element-group__text">Гора Эльбрус</h2>
-                        <button type="button" class="element-group__icon"><img alt="Иконка оценивания"  src="images/Heart.svg"></button>
-                    </div>
-                </li>
-                <li class="element">
-                    <img alt="Фотография местности" class="element__images" src="images/kirill-pershin-1088404-unsplash.jpg">
-                    <div class="element-group">
-                        <h2 class="element-group__text">Домбай</h2>
-                        <button type="button" class="element-group__icon"><img alt="Иконка оценивания"  src="images/Heart.svg"></button>
-                    </div>
-                </li>
-                <li class="element">
-                    <img alt="Фотография местности" class="element__images" src="images/kirill-pershin-1088404-unsplash.jpg">
-                    <div class="element-group">
-                        <h2 class="element-group__text">Карачаевск</h2>
-                        <button type="button" class="element-group__icon"><img alt="Иконка оценивания"  src="images/Heart.svg"></button>
-                    </div>
-                </li>
-                <li class="element">
-                    <img alt="Фотография местности" class="element__images" src="images/kirill-pershin-1088404-unsplash.jpg">
-                    <div class="element-group">
-                        <h2 class="element-group__text">Карачаевск</h2>
-                        <button type="button" class="element-group__icon"><img alt="Иконка оценивания"  src="images/Heart.svg"></button>
-                    </div>
-                </li>
-                <li class="element">
-                    <img alt="Фотография местности" class="element__images" src="images/kirill-pershin-1088404-unsplash.jpg">
-                    <div class="element-group">
-                        <h3 class="element-group__text">Карачаевск</h3>
-                        <button type="button" class="element-group__icon"><img alt="Иконка оценивания"  src="images/Heart.svg"></button>
-                    </div>
-                </li> -->
-
             </ul>
         </section>
     </main>
@@ -96,15 +51,15 @@
         <p class="footer__info">© 2020 Mesto Russia</p>
     </footer>
 
-    <div class="popup">
+    <div class="popup popup-profile-edit">
         <div class="popup-container">
-            <button class="popup-container__close" type="button">
+            <button class="popup-container__close button-close-edit-profile" type="button">
                 <img alt="закрыть попап" src="images/Close-Icon.svg">
             </button>
-            <form name="popup-element" method="post" class="popup-form">
+            <form name="popup-element" method="post" class="popup-form form-profile-edit">
                 <h2 class="popup-form__title ">Редактировать профиль</h2>
-                <input name="name" class="popup-form__field" value="" type="text">
-                <input name="about" class="popup-form__field popup-form__field_type_sub" value="" type="text">
+                <input name="name" class="popup-form__field" value="" type="text" placeholder="Имя">
+                <input name="about" class="popup-form__field popup-form__field_type_sub" value="" type="text" placeholder="Профессия">
                 <button type="submit" class="popup-form__button">Сохранить</button>
             </form>
         </div>
@@ -115,7 +70,7 @@
             <button class="popup-container__close popup-container__close_type_add" type="button">
                 <img alt="закрыть попап" src="images/Close-Icon.svg">
             </button>
-            <form name="popup-element" method="post" class="popup-form popup-form-add">
+            <form name="popup-element" method="post" class="popup-form form-place-add">
                 <h2 class="popup-form__title ">Новое место</h2>
                 <input name="name" class="popup-form__field popup-form__field_type_name" placeholder="Название" value="" type="text">
                 <input name="link" class="popup-form__field popup-form__field_type_link" placeholder="Ссылка на картинку" value="" type="text">
@@ -124,20 +79,20 @@
         </div>
     </div>
 
-    <div class="popup popup-img ">
+    <div class="popup popup-img">
 
         <div class="popup-img-block">
 
             <button class="popup-img-block__close popup-img-block__close_type_img" type="button">
                     <img alt="закрыть попап" src="images/Close-Icon.svg">
             </button>
-            <template id="popup-img-object"> 
+
             <div class="popup-img-object">
-                        <img class="popup-img-object__item" src="images/kirill-pershin-1088404-unsplash.jpg">
-                        <p class="popup-img-object__text">Горный Алтай</p>
+                <img class="popup-img-object__item" src="">
+                <p class="popup-img-object__text"> </p>
             </div>
 
-            </template>
+
 
         </div>
 

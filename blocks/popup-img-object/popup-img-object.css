@@ -1,6 +1,5 @@
 .popup-img-object {
-    max-width: 75vh;
-    height: 75vh;
+    height: auto;
     margin-top: 40px;
     margin-right: 40px;
 }
