@@ -1,4 +1,3 @@
-const popup = document.querySelector('.popup');
 const popupProfileEdit = document.querySelector('.popup-profile-edit');
 const profileTitle = document.querySelector('.profile-info__title');
 const profileSub = document.querySelector('.profile-info__subtitle');
@@ -52,13 +51,13 @@ function createCard(name, link) {
     const place = document.querySelector('#element').content;
     const placeElement = place.querySelector('.element').cloneNode(true);
     placeElement.querySelector('.element-group__text').textContent = name;
-    placeElement.querySelector('.element__images').src = link;
-    placeElement.querySelector('.element__images').alt = name;
+    const elementImages = placeElement.querySelector('.element__images');
+    elementImages.src = link;
+    elementImages.alt = name;
 
     placeElement.querySelector('.element-group__icon').addEventListener('click', function(evt) {
         const eventTarget = evt.target;
-        eventTarget.classList.add('unheart');
-        eventTarget.classList.toggle('element-group__icon');
+        eventTarget.classList.toggle('element-group__icon-active');
 
 
     });
@@ -68,12 +67,14 @@ function createCard(name, link) {
         elementDeleteobj.remove();
     });
 
-    placeElement.querySelector('.element__images').addEventListener('click', function() {
+    elementImages.addEventListener('click', function() {
         openPopup(popupImg);
 
-        document.querySelector('.popup-img-object__item').src = link;
+        const popupImgObjectItem = document.querySelector('.popup-img-object__item');
 
-        document.querySelector('.popup-img-object__item').alt = name;
+        popupImgObjectItem.src = link;
+
+        popupImgObjectItem.alt = name;
 
         document.querySelector('.popup-img-object__text').textContent = name;
 
@@ -117,92 +118,10 @@ formPlaceAdd.addEventListener('submit', addPlace);
 
 
 
-
-
-const initialCards = [{
-        name: 'Архыз',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-    },
-    {
-        name: 'Челябинская область',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-    },
-    {
-        name: 'Иваново',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-    },
-    {
-        name: 'Камчатка',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-    },
-    {
-        name: 'Холмогорский район',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-    },
-    {
-        name: 'Байкал',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-    }
-];
-
-
-
 for (let i = 0; i < initialCards.length; i++) {
 
     elementsList.prepend(createCard(initialCards[i].name, initialCards[i].link));
 
-    // const element = document.createElement('li');
-    // element.classList.add('element');
-    // const elementDelete = document.createElement('img');
-    // elementDelete.classList.add('element__delete');
-    // elementDelete.src = 'images/trash.svg';
-    // const elementImages = document.createElement('img');
-    // elementImages.classList.add('element__images');
-    // elementImages.src = initialCards[i].link;
-    // const elementGroup = document.createElement('div');
-    // elementGroup.classList.add('element-group');
-    // const elementGroupText = document.createElement('h2');
-    // elementGroupText.classList.add('element-group__text');
-    // elementGroupText.textContent = initialCards[i].name;
-    // const elementGroupIcon = document.createElement('button');
-    // elementGroupIcon.classList.add('element-group__icon');
-    // const elementGroupIconImg = document.createElement('img');
-    // elementGroupIconImg.classList.add('unheart');
-
-    // elementGroupIconImg.src = 'images/Heart.svg';
-    // elementGroup.append(elementGroupText, elementGroupIcon);
-    // element.append(elementImages, elementDelete, elementGroup);
-    // elementGroupIcon.append(elementGroupIconImg);
-    // elementsList.append(element);
-
-    // elementGroupIconImg.addEventListener('click', function(evt) {
-    //     const eventTarget = evt.target;
-    //     if (eventTarget.classList.contains('unheart')) {
-    //         eventTarget.setAttribute('src', 'images/Union.svg');
-    //     } else {
-    //         eventTarget.setAttribute('src', 'images/Heart.svg');
-    //     }
-    //     eventTarget.classList.toggle('unheart');
-    // });
-
-    // elementImages.addEventListener('click', function() {
-
-    //     openPopup(popupImg);
-
-    //     const poupImgObjectLink = document.querySelector('.popup-img-object__item').src = initialCards[i].link;
-
-    //     const popupImgObjectText = document.querySelector('.popup-img-object__text').textContent = initialCards[i].name;
-
-
-
-    // });
-
-
-
-    // elementDelete.addEventListener('click', function() {
-    //     elementDeleteobj = elementDelete.closest('.element');
-    //     elementDeleteobj.remove();
-    // });
 }
 
 buttonCloseImg.addEventListener('click', function() {
