@@ -1,30 +1,32 @@
-.popup-form__button {
+.popup-form .popup-form__submit_inactive {
     width: 358px;
     height: 50px;
-    background: #000000;
+    background: #fff7f700;
     border-radius: 2px;
+    border: 1px solid #000000 !important;
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
     font-size: 18px;
     line-height: 22px;
     text-align: center;
-    color: #FFFFFF;
-    cursor: pointer;
+    color: #000000;
+    cursor: not-allowed;
     margin-top: 31px;
     margin-left: 36px;
     margin-right: 36px;
     margin-bottom: 36px;
-    border: none;
+    opacity: 0.2;
 }
 
-.popup-form__button:hover {
-    background: #000000;
-    opacity: 0.8;
+.popup-form .popup-form__submit_inactive:hover {
+    background: #fff7f700;
+    color: #000000;
+    opacity: 0.2;
 }
 
 @media (max-width:768px) {
-    .popup-form__button {
+    .popup-form .popup-form__button {
         width: 238px;
         height: 46px;
         font-size: 14px;

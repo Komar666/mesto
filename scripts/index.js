@@ -1,3 +1,4 @@
+const popup = document.querySelector('.popup')
 const popupProfileEdit = document.querySelector('.popup-profile-edit');
 const profileTitle = document.querySelector('.profile-info__title');
 const profileSub = document.querySelector('.profile-info__subtitle');
@@ -6,6 +7,7 @@ const formProfileEdit = document.querySelector('.form-profile-edit ');
 const formButton = document.querySelector('.popup-form__button');
 const inputTitle = document.querySelector('.popup-form__field');
 const inputSub = document.querySelector('.popup-form__field_type_sub');
+const popupForm = document.querySelector('.popup-form');
 
 const popupAddPlace = document.querySelector('.popup-add');
 const formPlaceAdd = document.querySelector('.form-place-add');
@@ -20,13 +22,22 @@ const popupImg = document.querySelector('.popup-img');
 
 const elementsList = document.querySelector('.elements__list');
 
-
 function handleProfileFormSubmit(evt) {
     evt.preventDefault();
     profileTitle.textContent = inputTitle.value;
     profileSub.textContent = inputSub.value;
     closePopup(popupProfileEdit);
 }
+
+
+// Вызовем функцию
+enableValidation({
+    formSelector: '.popup-form',
+    inputSelector: '.popup-form__field',
+    submitButtonSelector: '.popup-form__button',
+    inactiveButtonClass: 'popup-form__submit_inactive',
+    inputErrorClass: 'popup-form__field_type_error',
+});
 
 function openProfileEdit() {
     openPopup(popupProfileEdit);
@@ -35,14 +46,17 @@ function openProfileEdit() {
 }
 
 function openPopup(popup) {
-
     popup.classList.add('popup_opened');
+    popup.classList.add('animation');
 }
+
+
+
 
 function closePopup(popup) {
 
     popup.classList.remove('popup_opened');
-    popup.classList.add('animation');
+
 
 }
 
@@ -112,10 +126,29 @@ buttonCloseAddPlace.addEventListener('click', function() {
     closePopup(popupAddPlace);
 });
 
+
+
 formProfileEdit.addEventListener('submit', handleProfileFormSubmit);
 
 formPlaceAdd.addEventListener('submit', addPlace);
 
+
+
+const popupList = Array.from(document.querySelectorAll('.popup'));
+popupList.forEach((popup) => {
+    popup.addEventListener('click', (evt) => {
+        if (evt.target.classList.contains('popup')) {
+            closePopup(evt.target);
+        }
+    });
+
+    document.addEventListener('keydown', (evt) => {
+        if (evt.key === 'Escape') {
+
+            closePopup(popup);
+        }
+    });
+});
 
 
 for (let i = 0; i < initialCards.length; i++) {
@@ -126,4 +159,4 @@ for (let i = 0; i < initialCards.length; i++) {
 
 buttonCloseImg.addEventListener('click', function() {
     closePopup(popupImg);
-})
+});
