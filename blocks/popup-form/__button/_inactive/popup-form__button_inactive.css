@@ -1,4 +1,4 @@
-.popup-form .popup-form__submit_inactive {
+.popup-form .popup-form__button_inactive {
     width: 358px;
     height: 50px;
     background: #fff7f700;
@@ -19,14 +19,14 @@
     opacity: 0.2;
 }
 
-.popup-form .popup-form__submit_inactive:hover {
+.popup-form .popup-form__button_inactive:hover {
     background: #fff7f700;
     color: #000000;
     opacity: 0.2;
 }
 
 @media (max-width:768px) {
-    .popup-form .popup-form__button {
+    .popup-form .popup-form__button_inactive {
         width: 238px;
         height: 46px;
         font-size: 14px;
