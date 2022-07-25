@@ -16,6 +16,7 @@
 @import url(../blocks/popup-container/__close/popup-container__close.css);
 @import url(../blocks/popup-img-block/popup-img-block.css);
 @import url(../blocks/popup-img/popup-img.css);
+@import url(../blocks/element/__configuration/element__configuration.css);
 @import url(../blocks/popup-img-block/__close/popup-img-block__close.css);
 @import url(../blocks/popup-img-object/__item/popup-img-object__item.css);
 @import url(../blocks/popup-img-object/__text/popup-img-object__text.css);

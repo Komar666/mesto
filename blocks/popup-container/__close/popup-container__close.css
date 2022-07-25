@@ -7,15 +7,13 @@
     padding: 0;
     border: none;
     outline: none;
-}
-
-.popup-container__close img {
+    background-image: url('../../../images/Close-Icon.svg');
     width: 32px;
     height: 32px;
 }
 
 @media (max-width:768px) {
-    .popup-container__close img {
+    .popup-container__close {
         width: 20px;
         height: 20px;
     }
