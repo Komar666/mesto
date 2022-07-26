@@ -53,8 +53,8 @@ function openPopup(popup) {
 
 const closeOnEscapeKey = (evt) => {
     if (evt.key === 'Escape') {
-        const closeEsc = document.querySelector('.popup_opened');
-        closePopup(closeEsc);
+        const openSelectorPopup = document.querySelector('.popup_opened');
+        closePopup(openSelectorPopup);
     }
 }
 
