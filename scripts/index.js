@@ -47,24 +47,20 @@ function openProfileEdit() {
 function openPopup(popup) {
     popup.classList.add('popup_opened');
     popup.classList.add('animation');
-    document.addEventListener('keydown', closeKeyEscape);
+    document.addEventListener('keydown', closeOnEscapeKey);
 }
 
-function closeKeyEscape(evt) {
 
-    popupList.forEach((popup) => {
-
-        if (evt.key === 'Escape') {
-
-            closePopup(popup);
-        }
-
-    });
+const closeOnEscapeKey = (evt) => {
+    if (evt.key === 'Escape') {
+        const closeEsc = document.querySelector('.popup_opened');
+        closePopup(closeEsc);
+    }
 }
 
 function closePopup(popup) {
     popup.classList.remove('popup_opened');
-    document.removeEventListener('keydown', closeKeyEscape);
+    document.removeEventListener('keydown', closeOnEscapeKey);
 }
 
 function createCard(name, link) {
