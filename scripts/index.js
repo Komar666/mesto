@@ -39,7 +39,6 @@ validationEditProgile.enableValidation();
 const validationAddPlace = new FormValidator(config, '.form-place-add');
 validationAddPlace.enableValidation();
 
-
 function handleProfileFormSubmit(evt) {
 
     profileTitle.textContent = inputTitle.value;
@@ -56,25 +55,22 @@ function openProfileEdit() {
 export function openPopup(popup) {
     popup.classList.add('popup_opened');
     popup.classList.add('animation');
-    document.addEventListener('keydown', closeOnEscapeKey);
+    document.addEventListener('keydown', (evt) => {
+        if (evt.key === 'Escape') {
+            closePopup(popup);
+        }
+    });
 }
 
 function closePopup(popup) {
     popup.classList.remove('popup_opened');
-    document.removeEventListener('keydown', closeOnEscapeKey);
-}
-
-const closeOnEscapeKey = (evt) => {
-    if (evt.key === 'Escape') {
-        const openSelectorPopup = document.querySelector('.popup_opened');
-        closePopup(openSelectorPopup);
-    }
 }
 
 buttonEdit.addEventListener('click', openProfileEdit);
 
 buttonAddplace.addEventListener('click', function() {
     openPopup(popupAddPlace);
+    validationAddPlace.resetValidation();
 });
 
 formProfileEdit.addEventListener('submit', handleProfileFormSubmit);
@@ -92,17 +88,35 @@ popupList.forEach((popup) => {
 });
 
 initialCards.forEach((item) => {
-    const card = new Card(item.name, item.link);
-    const cardElement = card.generateCard();
-    elementsList.prepend(cardElement);
+    elementsList.prepend(createCard(item.name, item.link));
 });
 
-function addPlace(evt) {
-    const cardnew = new Card(inputPlace.value, inputLink.value);
-    const cardElement = cardnew.generateCard();
-    elementsList.prepend(cardElement);
-    formPlaceAdd.reset();
-    closePopup(popupAddPlace);
+
+console.log(initialCards);
+
+function createCard(name, link) {
+    const card = new Card(name, link, handleCardClick, '#element');
+    const cardElement = card.generateCard();
+    return cardElement;
+
 }
+
+
+
+function addPlace() {
+
+    elementsList.prepend(createCard(inputPlace.value, inputLink.value));
+    closePopup(popupAddPlace);
+    formPlaceAdd.reset();
+}
+
+function handleCardClick(name, link) {
+    popupImgObjectItem.src = link;
+    popupImgObjectItem.alt = name;
+    openPopup(popupImg);
+    document.querySelector('.popup-img-object__text').textContent = name;
+    console.log(popupImgObjectItem);
+}
+
 
 formPlaceAdd.addEventListener('submit', addPlace);
