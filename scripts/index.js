@@ -72,7 +72,7 @@ buttonEdit.addEventListener('click', openProfileEdit);
 
 buttonAddplace.addEventListener('click', function() {
     openPopup(popupAddPlace);
-    validationEditProfile.resetValidation();
+    validationAddPlace.resetValidation();
     formPlaceAdd.reset();
 });
 
