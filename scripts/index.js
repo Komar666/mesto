@@ -9,6 +9,7 @@ const buttonEdit = document.querySelector('.profile-info__button');
 const formProfileEdit = document.querySelector('.form-profile-edit ');
 const inputTitle = document.querySelector('.popup-form__field');
 const inputSub = document.querySelector('.popup-form__field_type_sub');
+const popupImgObjectText = document.querySelector('.popup-img-object__text');
 // const popupForm = document.querySelector('.popup-form');
 // const formButton = document.querySelector('.popup-form__button');
 
@@ -34,8 +35,8 @@ const config = {
     inputErrorClass: 'popup-form__field_type_error',
 }
 
-const validationEditProgile = new FormValidator(config, '.form-profile-edit');
-validationEditProgile.enableValidation();
+const validationEditProfile = new FormValidator(config, '.form-profile-edit');
+validationEditProfile.enableValidation();
 const validationAddPlace = new FormValidator(config, '.form-place-add');
 validationAddPlace.enableValidation();
 
@@ -50,6 +51,7 @@ function openProfileEdit() {
     openPopup(popupProfileEdit);
     inputTitle.value = profileTitle.textContent;
     inputSub.value = profileSub.textContent;
+    validationEditProfile.resetValidation();
 }
 
 export function openPopup(popup) {
@@ -70,7 +72,8 @@ buttonEdit.addEventListener('click', openProfileEdit);
 
 buttonAddplace.addEventListener('click', function() {
     openPopup(popupAddPlace);
-    validationAddPlace.resetValidation();
+    validationEditProfile.resetValidation();
+    formPlaceAdd.reset();
 });
 
 formProfileEdit.addEventListener('submit', handleProfileFormSubmit);
@@ -114,7 +117,7 @@ function handleCardClick(name, link) {
     popupImgObjectItem.src = link;
     popupImgObjectItem.alt = name;
     openPopup(popupImg);
-    document.querySelector('.popup-img-object__text').textContent = name;
+    popupImgObjectText.textContent = name;
     console.log(popupImgObjectItem);
 }
 
