@@ -22,8 +22,8 @@ const buttonAddplace = document.querySelector('.profile__button');
 const inputPlace = document.querySelector('.popup-form__field_type_name');
 const inputLink = document.querySelector('.popup-form__field_type_link');
 
-export const popupImg = document.querySelector('.popup-img');
-export const popupImgObjectItem = document.querySelector('.popup-img-object__item');
+const popupImg = document.querySelector('.popup-img');
+const popupImgObjectItem = document.querySelector('.popup-img-object__item');
 
 const elementsList = document.querySelector('.elements__list');
 
@@ -54,7 +54,7 @@ function openProfileEdit() {
     validationEditProfile.resetValidation();
 }
 
-export function openPopup(popup) {
+function openPopup(popup) {
     popup.classList.add('popup_opened');
     popup.classList.add('animation');
     document.addEventListener('keydown', closeOnEscapeKey);
