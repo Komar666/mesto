@@ -57,15 +57,20 @@ function openProfileEdit() {
 export function openPopup(popup) {
     popup.classList.add('popup_opened');
     popup.classList.add('animation');
-    document.addEventListener('keydown', (evt) => {
-        if (evt.key === 'Escape') {
-            closePopup(popup);
-        }
-    });
+    document.addEventListener('keydown', closeOnEscapeKey);
+}
+
+
+const closeOnEscapeKey = (evt) => {
+    if (evt.key === 'Escape') {
+        const openSelectorPopup = document.querySelector('.popup_opened');
+        closePopup(openSelectorPopup);
+    }
 }
 
 function closePopup(popup) {
     popup.classList.remove('popup_opened');
+    document.removeEventListener('keydown', closeOnEscapeKey);
 }
 
 buttonEdit.addEventListener('click', openProfileEdit);
