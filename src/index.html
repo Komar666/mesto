@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="pages/index.css">
+    <!-- <link rel="stylesheet" href="pages/index.css"> -->
 
     <title>Mesto</title>
 </head>
@@ -13,24 +13,23 @@
 <body class="page">
 
     <header class="header">
-        <img alt="Логотип" class="header__logo" src="images/logo.svg">
-
+        <img class="header__logo" src="<%=require('./images/logo.svg')%>" alt="Логотип">
     </header>
     <main>
         <section class="profile">
-            <img alt="Аватар" src="images/Avatar.svg">
+            <img alt="Аватар" src="<%=require('./images/Avatar.svg')%>">
             <div class="profile-info">
                 <h1 class="profile-info__title">Жак-Ив Кусто</h1>
                 <p class="profile-info__subtitle">Исследователь океана</p>
-                <button type="button" class="profile-info__button">   <img alt="Кнопка редактирования" src="images/Edit-Button.svg"></button>
+                <button type="button" class="profile-info__button">   <img alt="Кнопка редактирования" src="<%=require('./images/Edit-Button.svg')%>"></button>
             </div>
-            <button type="button" class="profile__button"><img alt="Кнопка добавления новых элементов" src="images/Vector.svg"></button>
+            <button type="button" class="profile__button"><img alt="Кнопка добавления новых элементов" src="<%=require('./images/Vector.svg')%>"></button>
         </section>
         <section class="elements">
             <ul class="elements__list">
                 <template id="element">
                     <li class="element">
-                        <img class="element__delete" src="images/trash.svg">
+                        <img class="element__delete" src="<%=require('./images/trash.svg')%>">
                        <div class="element__configuration"> 
                         <img alt="Фотография местности" class="element__images" >
                         </div>
@@ -56,6 +55,8 @@
             <button class="popup-container__close button-close-edit-profile" type="button">
                
             </button>
+
+
             <form name="popup-element" method="post" class="popup-form form-profile-edit" novalidate>
                 <h2 class="popup-form__title ">Редактировать профиль</h2>
                 <input id="name-input" name="name" class="popup-form__field" value="" type="text" placeholder="Имя" minlength="2" maxlength="40" required>
@@ -64,6 +65,8 @@
                 <span class="about-input-error popup-form__error"></span>
                 <button type="submit" class="popup-form__button popup-form__button_inactive">Сохранить</button>
             </form>
+
+
         </div>
     </div>
 
@@ -76,6 +79,7 @@
             <button class="popup-container__close popup-container__close_type_add" type="button">
               
             </button>
+
             <form name="popup-element" method="post" class="popup-form form-place-add" novalidate>
                 <h2 class="popup-form__title ">Новое место</h2>
                 <input id="place-input" name="name" class="popup-form__field popup-form__field_type_name" placeholder="Название" value="" type="text" minlength="2" maxlength="30" required>
@@ -84,16 +88,20 @@
                 <span class="link-input-error popup-form__error"></span>
                 <button type="submit" class="popup-form__button popup-form__button_inactive">Создать</button>
             </form>
+
+
+
         </div>
     </div>
 
     <div class="popup popup-img">
 
+
         <div class="popup-img-block">
 
             <button class="popup-img-block__close popup-img-block__close_type_img" type="button">
-                   
-            </button>
+                       
+                </button>
 
             <div class="popup-img-object">
                 <img class="popup-img-object__item" type="text">
@@ -102,11 +110,18 @@
 
         </div>
 
+
+
+
     </div>
-    <script type="module" defer src="scripts/FormValidator.js"></script>
+
+    <!-- <script type="module" defer src="scripts/FormValidator.js"></script>
     <script type="module" defer src="scripts/cards.js"></script>
     <script type="module" defer src="scripts/index.js"></script>
     <script type="module" defer src="scripts/Card.js"></script>
+    <script type="module" defer src="scripts/Popup.js"></script>
+    <script type="module" defer src="scripts/PopupWithImage.js"></script>
+    <script type="module" defer src="scripts/Section.js"></script> -->
 </body>
 
 </html>

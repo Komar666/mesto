@@ -28,6 +28,10 @@ export default class Card {
         this._deleteButton = this._element.querySelector('.element__delete');
         this._cardImage.src = this._image;
         this._cardImage.alt = this._text;
+        this._popupImage = document.querySelector('.popup-img-object__item');
+        this._popupText = document.querySelector('.popup-img-object__text');
+        console.log(this._popupImage);
+
         this._element.querySelector('.element-group__text').textContent = this._text;
         this._setEventListeners();
 
@@ -45,7 +49,7 @@ export default class Card {
         });
 
         this._cardImage.addEventListener('click', () => {
-            this._handleCardClick(this._text, this._image)
+            this._handleCardClick(this._text, this._image);
         });
 
     }
