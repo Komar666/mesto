@@ -16,5 +16,6 @@
     .popup-img-block__close {
         width: 20px;
         height: 20px;
+        background-size: cover;
     }
 }

@@ -30,14 +30,13 @@ export default class Card {
         this._cardImage.alt = this._text;
         this._popupImage = document.querySelector('.popup-img-object__item');
         this._popupText = document.querySelector('.popup-img-object__text');
-        console.log(this._popupImage);
+
 
         this._element.querySelector('.element-group__text').textContent = this._text;
         this._setEventListeners();
 
         return this._element;
     }
-
 
     _setEventListeners() {
         this._element.querySelector('.element-group__icon').addEventListener('click', () => {
@@ -59,8 +58,8 @@ export default class Card {
     }
 
     _deleteCardClick() {
-        this._deleteButton.closest('.element');
         this._element.remove();
+        this._element = null;
     }
 
 }

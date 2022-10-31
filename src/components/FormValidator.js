@@ -1,11 +1,11 @@
 export default class FormValidator {
-    constructor(config, templateSelector) {
+    constructor(config, form) {
         this._formSelector = config.formSelector;
         this._inputSelector = config.inputSelector;
         this._submitButtonSelector = config.submitButtonSelector;
         this._inactiveButtonClass = config.inactiveButtonClass;
         this._inputErrorClass = config.inputErrorClass;
-        this._templateSelector = templateSelector; // записали селектор в приватное поле
+        this._form = form; // записали селектор в приватное поле
     }
 
     _showInputError(popupForm, inputTitle, errorMessage) {
@@ -34,18 +34,18 @@ export default class FormValidator {
 
     enableValidation() {
 
-        this._popupFormThis = document.querySelector(this._templateSelector);
-        this._inputList = Array.from(this._popupFormThis.querySelectorAll(this._inputSelector));
-        this._formButton = this._popupFormThis.querySelector(this._submitButtonSelector);
 
-        this._popupFormThis.addEventListener('submit', (evt) => {
+        this._inputList = Array.from(this._form.querySelectorAll(this._inputSelector));
+        this._formButton = this._form.querySelector(this._submitButtonSelector);
 
-            evt.preventDefault();
-            this._toggleButtonState(this._inputList, this._formButton);
+        // this._form.addEventListener('submit', (evt) => {
 
-        });
+        //     evt.preventDefault();
+        //     this._toggleButtonState(this._inputList, this._formButton);
 
-        this._setEventListeners(this._popupFormThis);
+        // });
+
+        this._setEventListeners(this._form);
     }
 
     _hasInvalidInput(inputList) {
@@ -85,7 +85,7 @@ export default class FormValidator {
     resetValidation() {
         this._toggleButtonState();
         this._inputList.forEach((inputElement) => {
-            this._hideInputError(this._popupFormThis, inputElement)
+            this._hideInputError(this._form, inputElement)
         });
     }
 
