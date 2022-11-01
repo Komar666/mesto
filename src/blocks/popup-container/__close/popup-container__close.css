@@ -16,5 +16,6 @@
     .popup-container__close {
         width: 20px;
         height: 20px;
+        background-size: contain;
     }
 }

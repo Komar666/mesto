@@ -141,6 +141,7 @@ const formPlace = new PopupWithForm('.popup-add', {
             // const cardElement = card.generateCard();
             // elementsContainer.prepend(cardElement);
             cardsList.addItem(createCard(name, link));
+            formPlace.close();
         }
     }
 
