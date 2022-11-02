@@ -1,6 +1,6 @@
 .popup-img-block {
     max-width: max-content;
-    height: max-content;
+    height: auto;
     border: 1px solid rgba(255, 0, 0, 0);
     position: relative;
     margin: 0 auto;
@@ -8,8 +8,13 @@
 
 @media (max-width:768px) {
     .popup-img-block {
-        width: 240px;
-        height: auto;
         margin-top: 100px;
+    }
+}
+
+@media (max-width:320px) {
+    .popup-img-block {
+        margin-top: 100px;
+        width: 240px;
     }
 }
