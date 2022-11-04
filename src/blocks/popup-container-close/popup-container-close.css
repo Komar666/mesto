@@ -1,4 +1,4 @@
-.popup-container__close {
+.popup-container-close {
     position: absolute;
     right: 0px;
     cursor: pointer;
@@ -7,13 +7,13 @@
     padding: 0;
     border: none;
     outline: none;
-    background-image: url('../../../images/Close-Icon.svg');
+    background-image: url('/src/images/Close-Icon.svg');
     width: 32px;
     height: 32px;
 }
 
 @media (max-width:768px) {
-    .popup-container__close {
+    .popup-container-close {
         width: 20px;
         height: 20px;
         background-size: contain;
