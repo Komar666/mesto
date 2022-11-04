@@ -8,6 +8,7 @@
     opacity: 0;
     visibility: hidden;
     flex-direction: column;
+    display: flex;
 }
 
 @media (max-width:768px) {

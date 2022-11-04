@@ -3,7 +3,7 @@
     height: auto;
     border: 1px solid rgba(255, 0, 0, 0);
     position: relative;
-    margin: 0 auto;
+    margin: auto;
 }
 
 @media (max-width:768px) {
