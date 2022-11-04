@@ -23,9 +23,8 @@ export default class Popup {
     setEventListeners() {
         this._popup.addEventListener('click', (evt) => {
 
-            if (evt.target.classList.contains('popup-img-block__close') || evt.target.classList.contains('popup') || evt.target.classList.contains('popup-container__close')) {
+            if (evt.target.classList.contains('popup') || evt.target.classList.contains('popup-container__close')) {
                 this.close();
-
             }
         });
     }
