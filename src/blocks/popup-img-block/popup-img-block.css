@@ -6,15 +6,8 @@
     margin: auto;
 }
 
-@media (max-width:768px) {
-    .popup-img-block {
-        margin-top: 100px;
-    }
-}
-
 @media (max-width:320px) {
     .popup-img-block {
-        margin-top: 100px;
         width: 240px;
     }
 }
